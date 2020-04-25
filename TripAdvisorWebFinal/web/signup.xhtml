@@ -3,31 +3,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Trip Advisor</title>
+        <title>Register</title>
     </h:head>
     <h:body>
-        <h1>Welcome to Trip Advisor</h1>
+        <h1>Sign up</h1>
         <h:form>
             User ID:
-            <h:inputText value="#{login.userId}">
+            <h:inputText>
+                
+            </h:inputText>
+            <br></br>
+            <br></br>
+            Name:
+            <h:inputText>
                 
             </h:inputText>
             <br></br>
             <br></br>
             Password:
-            <h:inputText value="#{login.pswd}">
+            <h:inputText>
                 
             </h:inputText>
             <br></br>
             <br></br>
-            <h:commandButton value="Login" action="#{login.tryLogin()}">
+            Tag1:
+            <h:inputText>
+                
+            </h:inputText>
+            <br></br>
+            <br></br>
+            Tag2:
+            <h:inputText>
+                
+            </h:inputText>
+            <br></br>
+            <br></br>
+            <h:commandButton value="Signup">
                 
             </h:commandButton>
-            <br></br>
-            <br></br>
-            <h:commandLink value="Signup" action="signup.xhtml">
-                
-            </h:commandLink>
         </h:form>
     </h:body>
 </html>
