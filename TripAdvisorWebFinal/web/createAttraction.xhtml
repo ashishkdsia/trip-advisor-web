@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create Attraction</title>
+    </h:head>
+    <h:body>
+        <h1>Create Attraction</h1>
+        <h:form>
+             <p>Please enter your attraction name:<br></br>
+                <h:inputText  required ="true" 
+                             requiredMessage="The Name field cannot be empty"
+                        title="Please enter a name"
+                        value="#{login.useracc.name}" >
+                </h:inputText>
+            </p>
+            <p>Please enter the city:<br></br>
+                <h:inputText  required ="true" 
+                             requiredMessage="The city field cannot be empty"
+                        title="Please enter the city"
+                        value="#{login.useracc.city}">
+                         
+                </h:inputText>
+            </p>
+            <p>Please enter the State:<br></br>
+                <h:inputText  required ="true" 
+                             requiredMessage="The state field cannot be empty"
+                        title="Please enter the state"
+                        value="#{login.useracc.state}">
+                         
+                </h:inputText>
+            </p>
+            <p>Please enter a description<br></br>
+                <h:inputText  required ="true" 
+                             requiredMessage="The state field cannot be empty"
+                        title="Please enter a description"
+                        value="#{login.useracc.description}">
+                </h:inputText>
+            </p>
+            <p>Please enter a Tag:<br></br>
+                <h:selectOneRadio value="#{login.useracc.tag}">
+                    <f:selectItem itemValue="History Buff" itemLabel="History Buff"></f:selectItem>
+                    <f:selectItem itemValue="Shopping Fanatic" itemLabel="Shopping Fanatic"></f:selectItem>
+                    <f:selectItem itemValue="Beach Goer" itemLabel="Beach Goer"></f:selectItem>
+                    <f:selectItem itemValue="Urban Explorer" itemLabel="Urban Explorer"></f:selectItem>
+                    <f:selectItem itemValue="Nature Lover" itemLabel="Nature Lover"></f:selectItem>
+                    <f:selectItem itemValue="Family Vactioner" itemLabel="Family Vacationer"></f:selectItem>
+                </h:selectOneRadio>
+            </p>
+            <p>
+                <h:commandButton value="Create"
+                                 action="#{login.useracc.catt()}" />
+            </p>
+        </h:form>
+    </h:body>
+</html>
+

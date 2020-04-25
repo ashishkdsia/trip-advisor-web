@@ -8,12 +8,36 @@
     <h:body>
         <h1>welcome To Trip Advisor, #{login.useracc.userId} </h1>
         <h:form>
+            Search
             <h:inputText value="#{login.useracc.sinput}">
                 
             </h:inputText>
             <br></br>
             <br></br>
             <h:commandButton value="Search" action="#{login.useracc.search()}">
+                
+            </h:commandButton>
+            <br></br>
+            <br></br>
+            <h2>You may Like</h2>
+            <h:dataTable value="#{login.useracc.data.youMayLike(login.useracc.userId)}" var="obj">
+                <h:column>
+                    <h:commandLink value="#{obj}" action="#{login.useracc.view(obj)}"></h:commandLink>
+                </h:column>
+            </h:dataTable>
+            <br></br>
+            <br></br>
+            <h:commandLink value="CreateAttraction" action="createAttraction"> 
+                
+            </h:commandLink>
+            <br></br>
+            <br></br>
+            <h:commandLink value="ViewFavorite" action="favatt"> 
+                
+            </h:commandLink>
+            <br></br>
+            <br></br>
+            <h:commandButton value="LogOut" action="#{login.useracc.signOut()}">
                 
             </h:commandButton>
         </h:form>

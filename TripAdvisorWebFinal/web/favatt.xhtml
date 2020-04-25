@@ -3,11 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Trip Advisor</title>
+        <title>Favorite attraction</title>
     </h:head>
     <h:body>
         <h:form>
-            <h:dataTable value="#{login.useracc.data.search(login.useracc.sinput)}" var="obj">
+            <h:dataTable value="#{login.useracc.data.viewFavourite(login.useracc.userId)}" var="obj">
                 <h:column>
                     <h:commandLink value="#{obj}" action="#{login.useracc.view(obj)}"></h:commandLink>
                 </h:column>

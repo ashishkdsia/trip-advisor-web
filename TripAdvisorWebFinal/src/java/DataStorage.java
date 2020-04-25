@@ -19,4 +19,11 @@ public interface DataStorage
     ArrayList<String> view(String attraction);
     ArrayList<String> adminRReqs();
     void adminAReqs(String att);
+    void newAttraction(String Attraction_Name,String City,String State, String Description, String Tag, String user_id);
+    ArrayList<String> viewFavourite(String userid);
+    void myFavoriteAttraction(String Userid, String attraction);
+    ArrayList<String> youMayLike(String user_id);
+    String reviewCheck(String attraction, String user_id);
+    void postReview(String attraction, String user_id, float score, String comment);
+    void AverageScore(String attraction);
 }

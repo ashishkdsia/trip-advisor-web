@@ -12,6 +12,12 @@
                     <h:outputText value="#{obj}"></h:outputText>
                 </h:column>
             </h:dataTable>
+            <br></br>
+            <br></br>
+            <h:commandButton value="Addfavorite" action="#{login.useracc.data.myFavoriteAttraction(login.useracc.userId, login.useracc.vinput)}"></h:commandButton>
+            <br></br>
+            <br></br>
+            <h:commandButton value="PostReview" action="#{login.useracc.data.reviewCheck(login.useracc.vinput, login.useracc.userId)}"></h:commandButton>
         </h:form>
     </h:body>
 </html>

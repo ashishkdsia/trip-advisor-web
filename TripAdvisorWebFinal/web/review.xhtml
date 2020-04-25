@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Review</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h1>Post a review</h1>
+        <br></br>
+        <br></br>
+        <h2>Attraction - #{login.useracc.vinput}</h2>
+        <br></br>
+        <br></br>
+        Give a Score between 1 and 5
+        <h:inputText value="#{login.useracc.score}" ></h:inputText>
+        <br></br>
+        <br></br>
+        Comment:
+        <h:inputText value="#{login.useracc.comment}" ></h:inputText>
+        <br></br>
+        <br></br>
+        <h:commandButton value="Post" action="#{login.useracc.post()}" ></h:commandButton>
+        </h:form>
+    </h:body>
+</html>
+
