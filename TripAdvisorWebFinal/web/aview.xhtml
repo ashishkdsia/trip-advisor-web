@@ -5,24 +5,21 @@
     <h:head>
         <title>Admin Page</title>
     </h:head>
-    
     <h:body>
         <h:form>
-            <h1>Welcome to Admin Page</h1>
-            <h3>Click to the link to view the attraction</h3>
-            <h2>List of received Requests</h2>
-            
-            <h:dataTable value="#{login.admin.recievedReqs()}" var="obj">
+            <h:dataTable value="#{login.admin.data.view(login.admin.attraction)}" var="obj">
                 <h:column>
-                    <h:commandLink value="#{obj}" action="#{login.admin.view(obj)}">
-                        
-                    </h:commandLink>
+                    <h:outputText value="#{obj}"></h:outputText>
                 </h:column>
             </h:dataTable>
             <br></br>
             <br></br>
+            <h:commandButton value="Accept Request" action="#{login.admin.acceptReqs(login.admin.attraction)}"></h:commandButton>
+            <br></br>
+            <br></br>
             <h:commandButton value="LogOut" action="#{login.admin.signOut()}"></h:commandButton>
         </h:form>
+        
     </h:body>
 </html>
 

@@ -6,16 +6,12 @@
         <title>Trip Advisor</title>
     </h:head>
     <h:body>
-        <h1>welcome To Trip Advisor, #{login.useracc.userId} </h1>
         <h:form>
-            <h:inputText value="#{login.useracc.sinput}">
-                
-            </h:inputText>
-            <br></br>
-            <br></br>
-            <h:commandButton value="Search" action="#{login.useracc.search()}">
-                
-            </h:commandButton>
+            <h:dataTable value="#{login.useracc.search}" var="obj">
+                <h:column>
+                    <h:commandLink value="#{obj}" action="#{login.useracc.view(obj)}"></h:commandLink>
+                </h:column>
+            </h:dataTable>
         </h:form>
     </h:body>
 </html>

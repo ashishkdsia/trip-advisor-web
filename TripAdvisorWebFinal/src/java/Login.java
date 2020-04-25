@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -11,16 +12,27 @@ import javax.faces.bean.SessionScoped;
  *
  * @author Ashish
  */
+
 @ManagedBean
 @SessionScoped
-public class Login 
+public class Login implements Serializable
 {
     private String userId;
     private String pswd;
     private User useracc;
+    private Admin admin;
     
     public String tryLogin()
     {
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return ("internalError");
+        }
         DataStorage data = new SQL_Database();
         String ltype = data.login(userId, pswd);
         if(ltype.equals("user"))
@@ -28,6 +40,12 @@ public class Login
             useracc = new User(userId,pswd);
             useracc.setData(data);
             return "user";
+        }
+        else if(ltype.equals("admin"))
+        {
+            admin = new Admin();
+            admin.setData(data);
+            return "admin";
         }
         else
         {
@@ -55,6 +73,15 @@ public class Login
     public User getUseracc() {
         return useracc;
     }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+    
     
     
 }

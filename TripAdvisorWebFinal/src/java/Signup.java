@@ -23,6 +23,15 @@ public class Signup
     
     public String trySignup()
     {
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return ("internalError");
+        }
         DataStorage data = new SQL_Database();
         return data.registerAccount(userId, name, password, tag1, tag2);
     }
