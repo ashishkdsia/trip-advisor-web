@@ -5,8 +5,8 @@
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:b="http://bootsfaces.net/ui">
     <h:head>
-        <title>Welcome</title>
-
+        <title>You May Like</title>
+        <meta http-equiv="pragma" content="no-cache" />
         <style>
             .Bimage{background-image: url('Trip1.jpg');
                     background-size: 100%;
@@ -14,10 +14,13 @@
             }
         </style>
     </h:head>
-    <h:body styleClass="Bimage">
-        <b:navBar brand="TripAdvisor" fluid="true" inverse="true" brandHref="user.xhtml">
+    <h:body class="Bimage">
+         <div style="padding: 0px;">
+            <h1 style="color: white; font-style: italic; font-family:capital"><center>Welcome to Trip Advisor</center></h1>
+        </div>
+       <b:navBar brand="TripAdvisor" fluid="true" inverse="true" brandHref="user.xhtml">
             <b:navbarLinks pull="left">
-
+                
                 <b:dropMenu value="" icon-awesome="heart">
                     <b:navLink value="Create Attraction" outcome="createAttraction" ></b:navLink>
                     <b:navLink value="Favorites" outcome="favatt"></b:navLink>
@@ -27,7 +30,7 @@
             <b:navbarLinks>
                 <b:form  class="navbar-form navbar-left hidden-md hidden-sm hidden-xs" role="search">
                     <div class="form-group">
-
+                        
                         <b:inputText value="#{login.useracc.sinput}" type="text" class="form-control" pt:placeholder="Search"></b:inputText>
                     </div>
                     <b:commandButton action="#{login.useracc.search()}" type="submit" class="btn btn-default" icon-awesome="search"></b:commandButton>
@@ -44,39 +47,17 @@
                 </b:dropMenu>
             </b:navbarLinks>
         </b:navBar>
-        <h1>welcome To Trip Advisor, #{login.useracc.userId} </h1>
-        <div class="container">
-            <h:form style=" margin-top: 40px">
+        <h:form style=" margin-top: 40px">
                 <b:panelGrid columns="2">
-                    <b:panel  look="primary">
-
-
-
-                        <br></br>
-                        <br></br>
-                        <h2>You may Like</h2>
-                        <h:dataTable value="#{login.useracc.data.youMayLike(login.useracc.userId)}" var="obj">
-                            <h:column>
-                                <h:commandLink value="#{obj}" action="#{login.useracc.view(obj)}"></h:commandLink>
-                            </h:column>
-                        </h:dataTable>
-                        <br></br>
-                        <br></br>
-                        <h:commandLink value=" Click Here to Create Attraction" action="createAttraction"> 
-
-                        </h:commandLink>
-                        <br></br>
-                        <br></br>
-                        <h:commandLink value="Click Here to View your Favorites" action="favatt"> 
-
-                        </h:commandLink>
-                        <br></br>
-                        <br></br>
-
+                    <b:panel title="You May Like" look="primary">
+            <h:dataTable value="#{login.useracc.data.youMayLike(login.useracc.userId)}" var="obj">
+                <h:column>
+                    <h:commandLink value="#{obj}" action="#{login.useracc.view(obj)}"></h:commandLink>
+                </h:column>
+            </h:dataTable>
                     </b:panel>
                 </b:panelGrid>
-            </h:form>
-        </div>
-
+        </h:form>
     </h:body>
 </html>
+

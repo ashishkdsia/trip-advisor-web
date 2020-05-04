@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -20,20 +22,34 @@ public class Signup
     private String name;
     private String tag1;
     private String tag2;
+    private final String UserID_PATTERN = "(?=.*[a-zA-Z])(?=.*\\d).{3,10}";
     
     public String trySignup()
     {
-        try
+        String a = "";
+        if (!(userId).matches(UserID_PATTERN))
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            FacesContext.getCurrentInstance().addMessage("error", new FacesMessage("User ID does not match the requirement"));
         }
-        catch (Exception e)
+        else if( userId.matches(password))
         {
-            e.printStackTrace();
-            return ("internalError");
+            FacesContext.getCurrentInstance().addMessage("error", new FacesMessage("User ID and Password should not match"));
         }
-        DataStorage data = new SQL_Database();
-        return data.registerAccount(userId, name, password, tag1, tag2);
+        else 
+        {
+            try 
+            {
+                Class.forName("com.mysql.jdbc.Driver");
+            } 
+            catch (Exception e) 
+            {
+                return ("Internal Error! Please try again later.");
+            }
+            DataStorage data = new SQL_Database();
+             a =data.registerAccount(userId, name, password, tag1, tag2);
+        }
+
+        return a;
     }
     
     

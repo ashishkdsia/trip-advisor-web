@@ -1,25 +1,46 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>Admin Page</title>
+        <meta http-equiv="pragma" content="no-cache" />
+        <style>
+            .Bimage{background-image: url('Trip1.jpg');
+                    background-size: 100%;
+
+            }
+        </style>
     </h:head>
-    <h:body>
-        <h:form>
-            <h:dataTable value="#{login.admin.data.view(login.admin.attraction)}" var="obj">
-                <h:column>
-                    <h:outputText value="#{obj}"></h:outputText>
-                </h:column>
-            </h:dataTable>
-            <br></br>
-            <br></br>
-            <h:commandButton value="Accept Request" action="#{login.admin.acceptReqs(login.admin.attraction)}"></h:commandButton>
-            <br></br>
-            <br></br>
-            <h:commandButton value="LogOut" action="#{login.admin.signOut()}"></h:commandButton>
+    <h:body class="Bimage">
+        <div style="padding: 0px;">
+            <h1 style="color: white; font-style: italic; font-family:capital"><center>Welcome to Trip Advisor</center></h1>
+        </div>
+
+        <h:form style=" margin-top: 40px">
+            <b:panelGrid columns="2">
+                <b:panel title="Approve Request" look="primary">            <h:dataTable value="#{login.admin.data.view(login.admin.attraction)}" var="obj">
+                        <h:column>
+                            <h:outputText value="#{obj}"></h:outputText>
+                        </h:column>
+                    </h:dataTable>
+                    <br></br>
+                    <br></br>
+                    <h:commandButton value="Accept Request" action="#{login.admin.acceptReqs(login.admin.attraction)}"></h:commandButton>
+                    <br></br>
+                    <br></br>
+                    <h:commandButton value="Reject Request" action="#{login.admin.rejectReqs(login.admin.attraction)}"></h:commandButton>
+                    <br></br>
+                    <br></br>
+                    <h:commandButton value="Back" action="admin"></h:commandButton>
+
+                </b:panel>
+            </b:panelGrid>
         </h:form>
-        
+
     </h:body>
 </html>
 

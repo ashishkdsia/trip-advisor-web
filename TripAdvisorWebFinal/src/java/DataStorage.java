@@ -26,4 +26,6 @@ public interface DataStorage
     String reviewCheck(String attraction, String user_id);
     void postReview(String attraction, String user_id, float score, String comment);
     void AverageScore(String attraction);
+    void adminRReqs(String att);
+    ArrayList<String> rRreview(String attraction);
 }

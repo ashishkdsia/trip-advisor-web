@@ -2,13 +2,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>Create Attraction</title>
+        <meta http-equiv="pragma" content="no-cache" />
+        <style>
+            .Bimage{background-image: url('Trip1.jpg');
+                    background-size: 100%;
+            
+            }
+        </style>
     </h:head>
-    <h:body>
+    <h:body class="Bimage">
+         <div style="padding: 0px;">
+            <h1 style="color: white; font-style: italic; font-family:capital"><center>Welcome to Trip Advisor</center></h1>
+        </div>
+        <b:navBar brand="TripAdvisor" fluid="true" inverse="true" brandHref="user.xhtml">
+            <b:navbarLinks pull="left">
+                
+                <b:dropMenu value="" icon-awesome="heart">
+                    <b:navLink value="Create Attraction" outcome="createAttraction" ></b:navLink>
+                    <b:navLink value="Favorites" outcome="favatt"></b:navLink>
+                    <b:navLink value="You May Like" outcome="youmay"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+            <b:navbarLinks>
+                <b:form  class="navbar-form navbar-left hidden-md hidden-sm hidden-xs" role="search">
+                    <div class="form-group">
+                        
+                        <b:inputText value="#{login.useracc.sinput}" type="text" class="form-control" pt:placeholder="Search"></b:inputText>
+                    </div>
+                    <b:commandButton action="#{login.useracc.search()}" type="submit" class="btn btn-default" icon-awesome="search"></b:commandButton>
+                </b:form>
+            </b:navbarLinks>
+
+            <b:navbarLinks pull="right">
+
+                <b:dropMenu value="" icon-awesome="cog">
+                    <b:navLink></b:navLink>
+                    <b:form>
+                        <b:commandButton value="LogOut" action="#{login.useracc.signOut()}" ></b:commandButton>
+                    </b:form>
+                </b:dropMenu>
+            </b:navbarLinks>
+        </b:navBar>
         <h1>Create Attraction</h1>
-        <h:form>
+        <h:form style=" margin-top: 40px">
+                <b:panelGrid columns="2">
+                    <b:panel title="Create Attraction" look="primary">
              <p>Please enter your attraction name:<br></br>
                 <h:inputText  required ="true" 
                              requiredMessage="The Name field cannot be empty"
@@ -53,7 +96,8 @@
                 <h:commandButton value="Create"
                                  action="#{login.useracc.catt()}" />
             </p>
+                    </b:panel>
+                </b:panelGrid>
         </h:form>
     </h:body>
 </html>
-

@@ -1,47 +1,99 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
-        <title>Register</title>
+        <title>Trip Advisor</title>
+        <meta http-equiv="pragma" content="no-cache" />
+        <style>
+            .Bimage{background-image: url('Trip1.jpg');
+                    background-size: 100%;
+
+            }
+        </style>
     </h:head>
-    <h:body>
-        <h1>Sign up</h1>
-        <h:form>
-            User ID:
-            <h:inputText>
-                
-            </h:inputText>
-            <br></br>
-            <br></br>
-            Name:
-            <h:inputText>
-                
-            </h:inputText>
-            <br></br>
-            <br></br>
-            Password:
-            <h:inputText>
-                
-            </h:inputText>
-            <br></br>
-            <br></br>
-            Tag1:
-            <h:inputText>
-                
-            </h:inputText>
-            <br></br>
-            <br></br>
-            Tag2:
-            <h:inputText>
-                
-            </h:inputText>
-            <br></br>
-            <br></br>
-            <h:commandButton value="Signup">
-                
-            </h:commandButton>
-        </h:form>
+    <h:body styleClass="Bimage">
+        <div style="padding: 0px;">
+            <h1 style="color: white; font-style: italic; font-family:capital"><center>Welcome to Trip Advisor</center></h1>
+        </div>
+
+        <h3>Create a new  account</h3>
+        <div class="container">
+            <h:form style=" margin-top: 40px">
+                <b:panelGrid columns="2">
+                    <b:panel title="Who are you?" look="primary">
+
+
+
+                        <p>Please enter your  ID:<br></br>
+                            <h:inputText id="id" required ="true" 
+                                         requiredMessage="The ID field cannot be empty"
+                                         title="Please enter your ID"
+                                         value="#{signup.userId}"
+                                         validatorMessage="The length of your selected 
+                                         ID must be between 3 and 10.">
+                                <f:validateLength maximum="10" minimum="3" />
+                            </h:inputText>
+                        </p>
+
+                        <p>Please enter your Name:<br></br>
+                            <h:inputText id="name" required ="true" 
+                                         requiredMessage="The name field cannot be empty"
+                                         title="Please enter your Name"
+                                         value="#{signup.name}">
+
+                            </h:inputText>
+                        </p>
+
+                        <p>Please enter your preferred password:<br></br>
+                            <h:inputText id="password" required ="true" 
+                                         requiredMessage="The password field cannot be empty"
+                                         title="Please enter your password"
+                                         value="#{signup.password}"
+                                         validatorMessage="The length of your 
+                                         password must be between 3 and 10.">
+                                <f:validateLength maximum="10" minimum="3" />
+                            </h:inputText>
+                        </p>
+
+
+                        <p>Please enter a Tag1:<br></br>
+
+                            <h:selectOneRadio value="#{signup.tag1}">
+                                <f:selectItem itemValue="History Buff" itemLabel="History Buff"></f:selectItem>
+                                <f:selectItem itemValue="Shopping Fanatic" itemLabel="Shopping Fanatic"></f:selectItem>
+                                <f:selectItem itemValue="Beach Goer" itemLabel="Beach Goer"></f:selectItem>
+                                <f:selectItem itemValue="Urban Explorer" itemLabel="Urban Explorer"></f:selectItem>
+                                <f:selectItem itemValue="Nature Lover" itemLabel="Nature Lover"></f:selectItem>
+                                <f:selectItem itemValue="Family Vactioner" itemLabel="Family Vacationer"></f:selectItem>
+                            </h:selectOneRadio>
+                        </p>
+
+                        <p>Please enter a Tag2:<br></br>
+
+                            <h:selectOneRadio value="#{signup.tag2}">
+                                <f:selectItem itemValue="History Buff" itemLabel="History Buff"></f:selectItem>
+                                <f:selectItem itemValue="Shopping Fanatic" itemLabel="Shopping Fanatic"></f:selectItem>
+                                <f:selectItem itemValue="Beach Goer" itemLabel="Beach Goer"></f:selectItem>
+                                <f:selectItem itemValue="Urban Explorer" itemLabel="Urban Explorer"></f:selectItem>
+                                <f:selectItem itemValue="Nature Lover" itemLabel="Nature Lover"></f:selectItem>
+                                <f:selectItem itemValue="Family Vactioner" itemLabel="Family Vacationer"></f:selectItem>
+                            </h:selectOneRadio>
+                        </p>
+
+
+                        <p>
+                            <h:commandButton id="submit" value="Submit"
+                                             action="#{signup.trySignup()}" />
+                        </p>
+
+                    </b:panel>
+                </b:panelGrid>
+            </h:form>
+        </div>
     </h:body>
 </html>
 

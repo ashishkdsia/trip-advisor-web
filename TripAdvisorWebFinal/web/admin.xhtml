@@ -1,15 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
-        <title>Admin Page</title>
+        <title>Admin</title>
+        <meta http-equiv="pragma" content="no-cache" />
+        <style>
+            .Bimage{background-image: url('Trip1.jpg');
+                    background-size: 100%;
+            
+            }
+        </style>
     </h:head>
     
-    <h:body>
-        <h:form>
+    <h:body class="Bimage">
+        
+            <div class="container">
+            <h:form style=" margin-top: 40px">
+                <b:panelGrid columns="2">
+                    <b:panel title="" look="primary">
             <h1>Welcome to Admin Page</h1>
-            <h3>Click to the link to view the attraction</h3>
             <h2>List of received Requests</h2>
             
             <h:dataTable value="#{login.admin.recievedReqs()}" var="obj">
@@ -22,7 +35,10 @@
             <br></br>
             <br></br>
             <h:commandButton value="LogOut" action="#{login.admin.signOut()}"></h:commandButton>
+            </b:panel>
+                </b:panelGrid>
         </h:form>
+            </div>
     </h:body>
 </html>
 
